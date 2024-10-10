@@ -1,9 +1,13 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'splash_model.dart';
 export 'splash_model.dart';
 
@@ -34,7 +38,7 @@ class _SplashWidgetState extends State<SplashWidget>
       context.goNamed(
         'splashScreen',
         extra: <String, dynamic>{
-          kTransitionInfoKey: const TransitionInfo(
+          kTransitionInfoKey: TransitionInfo(
             hasTransition: true,
             transitionType: PageTransitionType.rightToLeft,
           ),
@@ -52,8 +56,8 @@ class _SplashWidgetState extends State<SplashWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 1000.0.ms,
-            begin: const Offset(0.9, 0.9),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -82,7 +86,7 @@ class _SplashWidgetState extends State<SplashWidget>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Spacer(),
+              Spacer(),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
@@ -92,7 +96,7 @@ class _SplashWidgetState extends State<SplashWidget>
                 ),
               ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   'Agro Lab.ai',
                   style: FlutterFlowTheme.of(context).displaySmall.override(
@@ -102,9 +106,9 @@ class _SplashWidgetState extends State<SplashWidget>
                       ),
                 ),
               ),
-              const Spacer(),
+              Spacer(),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                 child: Text(
                   'Developed by Fuve S.A.S\nwww.fuve.com.co - www.collecta.com.co',
                   textAlign: TextAlign.center,

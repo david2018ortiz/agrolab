@@ -1,7 +1,10 @@
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'carrusel_model.dart';
 export 'carrusel_model.dart';
 
@@ -45,9 +48,9 @@ class _CarruselWidgetState extends State<CarruselWidget> {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        final imagenes = widget.imgList?.toList() ?? [];
+        final imagenes = widget!.imgList?.toList() ?? [];
 
-        return SizedBox(
+        return Container(
           width: double.infinity,
           height: 470.0,
           child: CarouselSlider.builder(
@@ -57,8 +60,8 @@ class _CarruselWidgetState extends State<CarruselWidget> {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: CachedNetworkImage(
-                  fadeInDuration: const Duration(milliseconds: 500),
-                  fadeOutDuration: const Duration(milliseconds: 500),
+                  fadeInDuration: Duration(milliseconds: 500),
+                  fadeOutDuration: Duration(milliseconds: 500),
                   imageUrl: valueOrDefault<String>(
                     imagenesItem,
                     'https://firebasestorage.googleapis.com/v0/b/leche-61850.appspot.com/o/jorien-loman-00YD5QLyaGU-unsplash%20(1).png?alt=media&token=a647ff7a-05f9-4350-9d91-eb3ff2f95576',
@@ -80,8 +83,8 @@ class _CarruselWidgetState extends State<CarruselWidget> {
               enableInfiniteScroll: true,
               scrollDirection: Axis.horizontal,
               autoPlay: true,
-              autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              autoPlayInterval: const Duration(milliseconds: (800 + 4000)),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayInterval: Duration(milliseconds: (800 + 4000)),
               autoPlayCurve: Curves.linear,
               pauseAutoPlayInFiniteScroll: true,
               onPageChanged: (index, _) => _model.carouselCurrentIndex = index,

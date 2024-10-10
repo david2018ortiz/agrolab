@@ -7,8 +7,12 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'production_model.dart';
 export 'production_model.dart';
 
@@ -70,7 +74,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
               context.goNamed(
                 'proyectosUser',
                 extra: <String, dynamic>{
-                  kTransitionInfoKey: const TransitionInfo(
+                  kTransitionInfoKey: TransitionInfo(
                     hasTransition: true,
                     transitionType: PageTransitionType.rightToLeft,
                   ),
@@ -79,7 +83,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
             child: Text(
               'Producción',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -90,32 +94,32 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: 600.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Container(
                         width: double.infinity,
-                        constraints: const BoxConstraints(
+                        constraints: BoxConstraints(
                           maxWidth: 1170.0,
                         ),
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -123,7 +127,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                             children: [
                               Flexible(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 0.0),
                                   child: Text(
                                     'A continuación se muestran sus ingresos más recientes.',
@@ -138,10 +142,10 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 0.0),
                                 child: Text(
-                                  'Proyecto: ${widget.proyectName}',
+                                  'Proyecto: ${widget!.proyectName}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -156,7 +160,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                       productionRecord
                                           .where(
                                             'proyectId',
-                                            isEqualTo: widget.proyectId,
+                                            isEqualTo: widget!.proyectId,
                                           )
                                           .orderBy('createTime',
                                               descending: true),
@@ -183,7 +187,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                       snapshot.data!;
 
                                   return ListView.separated(
-                                    padding: const EdgeInsets.fromLTRB(
+                                    padding: EdgeInsets.fromLTRB(
                                       0,
                                       12.0,
                                       0,
@@ -195,13 +199,13 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                     itemCount:
                                         listViewProductionRecordList.length,
                                     separatorBuilder: (_, __) =>
-                                        const SizedBox(height: 12.0),
+                                        SizedBox(height: 12.0),
                                     itemBuilder: (context, listViewIndex) {
                                       final listViewProductionRecord =
                                           listViewProductionRecordList[
                                               listViewIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         child: StreamBuilder<ProyectsRecord>(
                                           stream: ProyectsRecord.getDocument(
@@ -233,7 +237,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
 
                                             return Container(
                                               width: double.infinity,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 570.0,
                                               ),
                                               decoration: BoxDecoration(
@@ -250,7 +254,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(10.0),
+                                                padding: EdgeInsets.all(10.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -264,7 +268,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                       flex: 4,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -304,7 +308,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                       .textScaler,
                                                               text: TextSpan(
                                                                 children: [
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text:
                                                                         'Order #: ',
                                                                     style:
@@ -376,7 +380,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 5.0)),
                                                         ),
                                                       ),
@@ -445,12 +449,12 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -509,7 +513,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                       backgroundColor:
                                                                           Colors
                                                                               .transparent,
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                               0.0,
                                                                               0.0)
                                                                           .resolve(
@@ -519,7 +523,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                         onTap: () =>
                                                                             FocusScope.of(dialogContext).unfocus(),
                                                                         child:
-                                                                            SizedBox(
+                                                                            Container(
                                                                           height:
                                                                               MediaQuery.sizeOf(context).height * 0.8,
                                                                           width:
@@ -564,7 +568,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                 );
                                                               },
                                                               text: '',
-                                                              icon: const Icon(
+                                                              icon: Icon(
                                                                 Icons
                                                                     .content_paste_search,
                                                                 size: 24.0,
@@ -573,14 +577,14 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                   FFButtonOptions(
                                                                 width: 120.0,
                                                                 height: 35.0,
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -636,7 +640,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          SizedBox(
+                                                                          Container(
                                                                         height: MediaQuery.sizeOf(context).height *
                                                                             0.9,
                                                                         child:
@@ -657,7 +661,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                       () {}));
                                                             },
                                                             text: '',
-                                                            icon: const FaIcon(
+                                                            icon: FaIcon(
                                                               FontAwesomeIcons
                                                                   .stickerMule,
                                                               size: 24.0,
@@ -667,14 +671,14 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                               width: 120.0,
                                                               height: 35.0,
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -697,7 +701,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                       ),
                                                               elevation: 2.0,
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 2.0,
@@ -723,7 +727,7 @@ class _ProductionWidgetState extends State<ProductionWidget> {
                                                                       .primaryText,
                                                             ),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             height: 5.0)),
                                                       ),
                                                     ),

@@ -1,15 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/backend/schema/enums/enums.dart';
+import '/backend/supabase/supabase.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -74,18 +82,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const ValidacionWidget() : const SplashWidget(),
+          appStateNotifier.loggedIn ? ValidacionWidget() : SplashWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const ValidacionWidget() : const SplashWidget(),
+              appStateNotifier.loggedIn ? ValidacionWidget() : SplashWidget(),
         ),
         FFRoute(
           name: 'authUser',
           path: '/authUser',
-          builder: (context, params) => const AuthUserWidget(),
+          builder: (context, params) => AuthUserWidget(),
         ),
         FFRoute(
           name: 'Lista_animales',
@@ -154,7 +162,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'home',
           path: '/home',
           requireAuth: true,
-          builder: (context, params) => const HomeWidget(),
+          builder: (context, params) => HomeWidget(),
         ),
         FFRoute(
           name: 'production',
@@ -177,22 +185,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'perfil',
           path: '/perfil',
           requireAuth: true,
-          builder: (context, params) => const PerfilWidget(),
+          builder: (context, params) => PerfilWidget(),
         ),
         FFRoute(
           name: 'splashScreen',
           path: '/splashScreen',
-          builder: (context, params) => const SplashScreenWidget(),
+          builder: (context, params) => SplashScreenWidget(),
         ),
         FFRoute(
           name: 'splash',
           path: '/splash',
-          builder: (context, params) => const SplashWidget(),
+          builder: (context, params) => SplashWidget(),
         ),
         FFRoute(
           name: 'validacion',
           path: '/validacion',
-          builder: (context, params) => const ValidacionWidget(),
+          builder: (context, params) => ValidacionWidget(),
         ),
         FFRoute(
           name: 'expenses',
@@ -215,13 +223,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'proyectosUser',
           path: '/proyectosUser',
           requireAuth: true,
-          builder: (context, params) => const ProyectosUserWidget(),
+          builder: (context, params) => ProyectosUserWidget(),
         ),
         FFRoute(
           name: 'ProfileManager',
           path: '/profileManager',
           requireAuth: true,
-          builder: (context, params) => const ProfileManagerWidget(),
+          builder: (context, params) => ProfileManagerWidget(),
         ),
         FFRoute(
           name: 'agregarProduccion',
@@ -244,7 +252,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'proyectsManager',
           path: '/proyectsManager',
           requireAuth: true,
-          builder: (context, params) => const ProyectsManagerWidget(),
+          builder: (context, params) => ProyectsManagerWidget(),
         ),
         FFRoute(
           name: 'agregarGastos',
@@ -266,7 +274,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ForgotPassword',
           path: '/forgotPassword',
-          builder: (context, params) => const ForgotPasswordWidget(),
+          builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'productionManager',
@@ -538,7 +546,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

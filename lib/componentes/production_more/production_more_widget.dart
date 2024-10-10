@@ -2,7 +2,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'production_more_model.dart';
 export 'production_more_model.dart';
 
@@ -73,15 +76,15 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
-        constraints: const BoxConstraints(
+        constraints: BoxConstraints(
           maxWidth: 600.0,
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 15.0,
               color: Color(0x33000000),
@@ -95,7 +98,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
           child: SingleChildScrollView(
             primary: false,
             child: Column(
@@ -116,7 +119,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Nombre proyecto: ${widget.proyectName}',
+                      'Nombre proyecto: ${widget!.proyectName}',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             letterSpacing: 0.0,
@@ -125,7 +128,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   ],
                 ),
                 Text(
-                  'ID: ${widget.proyectId?.id}',
+                  'ID: ${widget!.proyectId?.id}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,
@@ -140,20 +143,20 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Hola, ${widget.userName}',
+                      'Hola, ${widget!.userName}',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             letterSpacing: 0.0,
                           ),
                     ),
                     Text(
-                      dateTimeFormat("yMMMd", widget.createTime),
+                      dateTimeFormat("yMMMd", widget!.createTime),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             letterSpacing: 0.0,
                           ),
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
                 Divider(
                   thickness: 2.0,
@@ -172,7 +175,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.itemName!,
+                      widget!.itemName!,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 16.0,
@@ -181,7 +184,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                     ),
                     Text(
                       formatNumber(
-                        widget.itemPrice,
+                        widget!.itemPrice,
                         formatType: FormatType.decimal,
                         decimalType: DecimalType.automatic,
                         currency: '\$',
@@ -192,7 +195,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                             letterSpacing: 0.0,
                           ),
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
                 Text(
                   'Medidas del item.',
@@ -206,7 +209,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      widget.cantidad!.toString(),
+                      widget!.cantidad!.toString(),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 16.0,
@@ -214,28 +217,28 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                           ),
                     ),
                     Text(
-                      widget.medida!,
+                      widget!.medida!,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 16.0,
                             letterSpacing: 0.0,
                           ),
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
                 Divider(
                   thickness: 2.0,
                   color: FlutterFlowTheme.of(context).alternate,
                 ),
                 Text(
-                  'Proyect Manager ID: ${widget.managerId?.id}',
+                  'Proyect Manager ID: ${widget!.managerId?.id}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,
                       ),
                 ),
                 Text(
-                  'Proyect Manager Name: ${widget.managerName}',
+                  'Proyect Manager Name: ${widget!.managerName}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,
@@ -259,10 +262,10 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: CachedNetworkImage(
-                        fadeInDuration: const Duration(milliseconds: 500),
-                        fadeOutDuration: const Duration(milliseconds: 500),
+                        fadeInDuration: Duration(milliseconds: 500),
+                        fadeOutDuration: Duration(milliseconds: 500),
                         imageUrl: valueOrDefault<String>(
-                          widget.img1,
+                          widget!.img1,
                           'https://firebasestorage.googleapis.com/v0/b/leche-61850.appspot.com/o/jorien-loman-00YD5QLyaGU-unsplash%20(1).png?alt=media&token=a647ff7a-05f9-4350-9d91-eb3ff2f95576',
                         ),
                         width: double.infinity,
@@ -278,15 +281,15 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
-                        await launchURL(widget.pathImg!);
+                        await launchURL(widget!.pathImg!);
                       },
                       text: 'Descargar',
                       options: FFButtonOptions(
                         height: 35.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -314,9 +317,9 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: CachedNetworkImage(
-                    fadeInDuration: const Duration(milliseconds: 500),
-                    fadeOutDuration: const Duration(milliseconds: 500),
-                    imageUrl: widget.invoice!,
+                    fadeInDuration: Duration(milliseconds: 500),
+                    fadeOutDuration: Duration(milliseconds: 500),
+                    imageUrl: widget!.invoice!,
                     width: double.infinity,
                     height: 200.0,
                     fit: BoxFit.contain,
@@ -328,15 +331,15 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
-                        await launchURL(widget.pathInvoice!);
+                        await launchURL(widget!.pathInvoice!);
                       },
                       text: 'Descargar',
                       options: FFButtonOptions(
                         height: 35.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -355,7 +358,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                   color: FlutterFlowTheme.of(context).alternate,
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Text(
                     'video evidencia: proximamente.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -364,7 +367,7 @@ class _ProductionMoreWidgetState extends State<ProductionMoreWidget> {
                         ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 5.0)),
+              ].divide(SizedBox(height: 5.0)),
             ),
           ),
         ),

@@ -4,10 +4,16 @@ import '/componentes/carrusel/carrusel_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'view_more_model.dart';
 export 'view_more_model.dart';
 
@@ -74,22 +80,22 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.698, 0),
-            end: const Offset(0, 0),
+            begin: Offset(0.698, 0),
+            end: Offset(0, 0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.7, 0.7),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.7, 0.7),
+            end: Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.0, 30.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -110,10 +116,10 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
     return Container(
       width: double.infinity,
       height: double.infinity,
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
         maxWidth: 600.0,
       ),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0x00FFFFFF),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.0),
@@ -126,7 +132,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
         stream: queryAnimalesRecord(
           queryBuilder: (animalesRecord) => animalesRecord.where(
             'proyectId',
-            isEqualTo: widget.proyectId,
+            isEqualTo: widget!.proyectId,
           ),
         ),
         builder: (context, snapshot) {
@@ -164,12 +170,12 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(
+                      Container(
                         width: double.infinity,
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: CarruselWidget(
                                 key: Key(
                                     'Keyljv_${listViewIndex}_of_${listViewAnimalesRecordList.length}'),
@@ -177,10 +183,10 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 420.0, 0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(16.0),
@@ -193,7 +199,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                   ),
                                   child: Container(
                                     width: double.infinity,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xCCFFFFFF),
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(0.0),
@@ -202,21 +208,21 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                         topRight: Radius.circular(16.0),
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
                                             height: 400.0,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 800.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color: Colors.white,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -230,7 +236,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(12.0),
+                                              padding: EdgeInsets.all(12.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -268,7 +274,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                               text: listViewAnimalesRecord
                                                                   .physicalId,
                                                               style:
-                                                                  const TextStyle(),
+                                                                  TextStyle(),
                                                             )
                                                           ],
                                                           style: FlutterFlowTheme
@@ -283,7 +289,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 10.0)),
+                                                        SizedBox(width: 10.0)),
                                                   ),
                                                   Row(
                                                     mainAxisSize:
@@ -300,10 +306,10 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                         text: TextSpan(
                                                           children: [
                                                             TextSpan(
-                                                              text: widget
+                                                              text: widget!
                                                                   .proyectName!,
                                                               style:
-                                                                  const TextStyle(),
+                                                                  TextStyle(),
                                                             )
                                                           ],
                                                           style: FlutterFlowTheme
@@ -331,11 +337,11 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
                                                                         0.0,
@@ -343,12 +349,12 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0),
                                                             child: Text(
                                                               () {
-                                                                if (widget
+                                                                if (widget!
                                                                         .statusProyect ==
                                                                     StatusProyect
                                                                         .open) {
                                                                   return 'Abierto';
-                                                                } else if (widget
+                                                                } else if (widget!
                                                                         .statusProyect ==
                                                                     StatusProyect
                                                                         .close) {
@@ -371,7 +377,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 8.0)),
+                                                        SizedBox(width: 8.0)),
                                                   ),
                                                   Divider(
                                                     height: 16.0,
@@ -401,7 +407,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                               size: 24.0,
                                                             ),
                                                             Text(
-                                                              '${listViewAnimalesRecord.productionItem}: ${widget.productionValue?.toString()}',
+                                                              '${listViewAnimalesRecord.productionItem}: ${widget!.productionValue?.toString()}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -412,7 +418,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
@@ -445,7 +451,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
@@ -477,12 +483,12 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 4.0)),
+                                                        SizedBox(width: 4.0)),
                                                   ),
                                                   Divider(
                                                     height: 16.0,
@@ -526,7 +532,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
@@ -558,7 +564,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
@@ -590,12 +596,12 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 4.0)),
+                                                        SizedBox(width: 4.0)),
                                                   ),
                                                   Divider(
                                                     height: 16.0,
@@ -617,7 +623,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 10.0),
                                                     child: Row(
@@ -656,7 +662,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                                         0.0,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
                                                       ],
@@ -669,7 +675,7 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget>
                                                             context)
                                                         .alternate,
                                                   ),
-                                                ].divide(const SizedBox(height: 4.0)),
+                                                ].divide(SizedBox(height: 4.0)),
                                               ),
                                             ),
                                           ),

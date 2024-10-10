@@ -10,6 +10,8 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'proyects_manager_model.dart';
 export 'proyects_manager_model.dart';
 
@@ -41,11 +43,11 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
               elevation: 0,
               insetPadding: EdgeInsets.zero,
               backgroundColor: Colors.transparent,
-              alignment: const AlignmentDirectional(0.0, 0.0)
+              alignment: AlignmentDirectional(0.0, 0.0)
                   .resolve(Directionality.of(context)),
               child: GestureDetector(
                 onTap: () => FocusScope.of(dialogContext).unfocus(),
-                child: const SizedBox(
+                child: Container(
                   height: 250.0,
                   width: 300.0,
                   child: MensajesWidget(
@@ -89,24 +91,24 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
           key: scaffoldKey,
           backgroundColor: Colors.white,
           body: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: 600.0,
               ),
-              decoration: const BoxDecoration(),
-              child: SizedBox(
+              decoration: BoxDecoration(),
+              child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 child: Stack(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => CachedNetworkImage(
-                          fadeInDuration: const Duration(milliseconds: 500),
-                          fadeOutDuration: const Duration(milliseconds: 500),
+                          fadeInDuration: Duration(milliseconds: 500),
+                          fadeOutDuration: Duration(milliseconds: 500),
                           imageUrl: currentUserPhoto,
                           width: double.infinity,
                           height: 340.0,
@@ -115,9 +117,9 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -0.87),
+                      alignment: AlignmentDirectional(0.0, -0.87),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -128,7 +130,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x520E151B),
@@ -146,7 +148,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
                                 fillColor: Colors.white,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.logout,
                                   color: Color(0xFF57636C),
                                   size: 20.0,
@@ -167,7 +169,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -175,14 +177,14 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 200.0, 0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 800.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                     boxShadow: [
                                       BoxShadow(
@@ -202,14 +204,14 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -230,7 +232,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF0F1113),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -242,7 +244,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -253,7 +255,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
@@ -276,14 +278,14 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                       width: 100.0,
                                                       height: 40.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -297,7 +299,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF827AE1),
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
@@ -307,7 +309,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                         .normal,
                                                               ),
                                                       elevation: 0.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 1.0,
@@ -324,7 +326,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              const TransitionInfo(
+                                                              TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -337,14 +339,14 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   12.0,
                                                                   0.0,
                                                                   12.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -371,7 +373,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                         .w500,
                                                               ),
                                                       elevation: 2.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -389,7 +391,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 0.0),
                                             child: StreamBuilder<
                                                 List<ProyectsRecord>>(
@@ -430,12 +432,12 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const Alignment(0.0, 0),
+                                                          Alignment(0.0, 0),
                                                       child: TabBar(
                                                         labelColor:
-                                                            const Color(0xFF0F1113),
+                                                            Color(0xFF0F1113),
                                                         unselectedLabelColor:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -454,12 +456,12 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                           .w500,
                                                                 ),
                                                         unselectedLabelStyle:
-                                                            const TextStyle(),
+                                                            TextStyle(),
                                                         indicatorColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondary,
-                                                        tabs: const [
+                                                        tabs: [
                                                           Tab(
                                                             text: 'Producción',
                                                           ),
@@ -484,7 +486,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -500,7 +502,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                 return ListView
                                                                     .separated(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .fromLTRB(
                                                                     0,
                                                                     15.0,
@@ -514,7 +516,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                           .length,
                                                                   separatorBuilder: (_,
                                                                           __) =>
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               10.0),
                                                                   itemBuilder:
@@ -524,7 +526,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                         produccion[
                                                                             produccionIndex];
                                                                     return Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           15.0,
                                                                           0.0,
                                                                           15.0,
@@ -557,7 +559,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                             }.withoutNulls,
                                                                             extra: <String,
                                                                                 dynamic>{
-                                                                              kTransitionInfoKey: const TransitionInfo(
+                                                                              kTransitionInfoKey: TransitionInfo(
                                                                                 hasTransition: true,
                                                                                 transitionType: PageTransitionType.leftToRight,
                                                                               ),
@@ -583,7 +585,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                           child:
                                                                               Padding(
                                                                             padding:
-                                                                                const EdgeInsets.all(5.0),
+                                                                                EdgeInsets.all(5.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -598,19 +600,19 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                         dateTimeFormat("yMMMd", produccionItem.createTime!),
                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                               fontFamily: 'Plus Jakarta Sans',
-                                                                                              color: const Color(0xFF0F1113),
+                                                                                              color: Color(0xFF0F1113),
                                                                                               fontSize: 12.0,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.w500,
                                                                                             ),
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
                                                                                         child: Text(
                                                                                           produccionItem.proyectName,
                                                                                           style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                 fontFamily: 'Outfit',
-                                                                                                color: const Color(0xFF0F1113),
+                                                                                                color: Color(0xFF0F1113),
                                                                                                 fontSize: 20.0,
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.normal,
@@ -640,9 +642,9 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                               borderRadius: BorderRadius.circular(12.0),
                                                                                             ),
                                                                                             child: Align(
-                                                                                              alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Padding(
-                                                                                                padding: const EdgeInsets.all(5.0),
+                                                                                                padding: EdgeInsets.all(5.0),
                                                                                                 child: Text(
                                                                                                   () {
                                                                                                     if (produccionItem.proyectStatus == StatusProyect.open) {
@@ -656,7 +658,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                                   textAlign: TextAlign.center,
                                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                         fontFamily: 'Plus Jakarta Sans',
-                                                                                                        color: const Color(0xFF0F1113),
+                                                                                                        color: Color(0xFF0F1113),
                                                                                                         fontSize: 12.0,
                                                                                                         letterSpacing: 0.0,
                                                                                                         fontWeight: FontWeight.w500,
@@ -685,8 +687,8 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                             options: FFButtonOptions(
                                                                                               width: 100.0,
                                                                                               height: 35.0,
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                     fontFamily: 'Readex Pro',
@@ -703,12 +705,12 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                   child: ClipRRect(
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                     child: CachedNetworkImage(
-                                                                                      fadeInDuration: const Duration(milliseconds: 500),
-                                                                                      fadeOutDuration: const Duration(milliseconds: 500),
+                                                                                      fadeInDuration: Duration(milliseconds: 500),
+                                                                                      fadeOutDuration: Duration(milliseconds: 500),
                                                                                       imageUrl: produccionItem.proyectImage,
                                                                                       width: 100.0,
                                                                                       height: 100.0,
@@ -729,7 +731,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -745,7 +747,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                 return ListView
                                                                     .separated(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .fromLTRB(
                                                                     0,
                                                                     15.0,
@@ -763,7 +765,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                           .length,
                                                                   separatorBuilder: (_,
                                                                           __) =>
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               10.0),
                                                                   itemBuilder:
@@ -773,7 +775,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                         gastos[
                                                                             gastosIndex];
                                                                     return Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           15.0,
                                                                           0.0,
                                                                           15.0,
@@ -832,7 +834,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsets.all(5.0),
+                                                                              padding: EdgeInsets.all(5.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -846,19 +848,19 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                           dateTimeFormat("yMMMd", gastosItem.createTime!),
                                                                                           style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                 fontFamily: 'Plus Jakarta Sans',
-                                                                                                color: const Color(0xFF0F1113),
+                                                                                                color: Color(0xFF0F1113),
                                                                                                 fontSize: 12.0,
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.w500,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
                                                                                           child: Text(
                                                                                             gastosItem.proyectName,
                                                                                             style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                   fontFamily: 'Outfit',
-                                                                                                  color: const Color(0xFF0F1113),
+                                                                                                  color: Color(0xFF0F1113),
                                                                                                   fontSize: 20.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
@@ -888,9 +890,9 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                                 borderRadius: BorderRadius.circular(12.0),
                                                                                               ),
                                                                                               child: Align(
-                                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                 child: Padding(
-                                                                                                  padding: const EdgeInsets.all(5.0),
+                                                                                                  padding: EdgeInsets.all(5.0),
                                                                                                   child: Text(
                                                                                                     () {
                                                                                                       if (gastosItem.proyectStatus == StatusProyect.open) {
@@ -903,7 +905,7 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                                     }(),
                                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                           fontFamily: 'Plus Jakarta Sans',
-                                                                                                          color: const Color(0xFF0F1113),
+                                                                                                          color: Color(0xFF0F1113),
                                                                                                           fontSize: 12.0,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w500,
@@ -932,8 +934,8 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                               options: FFButtonOptions(
                                                                                                 width: 100.0,
                                                                                                 height: 35.0,
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                       fontFamily: 'Readex Pro',
@@ -950,12 +952,12 @@ class _ProyectsManagerWidgetState extends State<ProyectsManagerWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                     child: ClipRRect(
                                                                                       borderRadius: BorderRadius.circular(12.0),
                                                                                       child: CachedNetworkImage(
-                                                                                        fadeInDuration: const Duration(milliseconds: 500),
-                                                                                        fadeOutDuration: const Duration(milliseconds: 500),
+                                                                                        fadeInDuration: Duration(milliseconds: 500),
+                                                                                        fadeOutDuration: Duration(milliseconds: 500),
                                                                                         imageUrl: gastosItem.proyectImage,
                                                                                         width: 100.0,
                                                                                         height: 100.0,

@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'splash_screen_model.dart';
 export 'splash_screen_model.dart';
 
@@ -42,7 +44,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFFF1F4F8),
+          backgroundColor: Color(0xFFF1F4F8),
           body: SafeArea(
             top: true,
             child: Column(
@@ -50,20 +52,20 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
               children: [
                 Expanded(
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       height: double.infinity,
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         maxWidth: 600.0,
                       ),
-                      decoration: const BoxDecoration(),
-                      child: SizedBox(
+                      decoration: BoxDecoration(),
+                      child: Container(
                         width: double.infinity,
                         height: 500.0,
                         child: Stack(
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 30.0),
                               child: PageView(
                                 controller: _model.pageViewController ??=
@@ -71,7 +73,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                 scrollDirection: Axis.horizontal,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -82,7 +84,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -99,12 +101,12 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Container(
                                           width: double.infinity,
                                           height: 180.0,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -116,7 +118,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       .override(
                                                         fontFamily: 'Urbanist',
                                                         color:
-                                                            const Color(0xFF101213),
+                                                            Color(0xFF101213),
                                                         fontSize: 24.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -125,7 +127,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 0.0),
                                                 child: Text(
@@ -137,7 +139,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -145,14 +147,14 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 10.0)),
+                                            ].divide(SizedBox(height: 10.0)),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -163,7 +165,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -180,12 +182,12 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Container(
                                           width: double.infinity,
                                           height: 180.0,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -197,7 +199,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       .override(
                                                         fontFamily: 'Urbanist',
                                                         color:
-                                                            const Color(0xFF101213),
+                                                            Color(0xFF101213),
                                                         fontSize: 32.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -206,7 +208,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 0.0),
                                                 child: Text(
@@ -218,7 +220,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -226,14 +228,14 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 10.0)),
+                                            ].divide(SizedBox(height: 10.0)),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -244,7 +246,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -261,12 +263,12 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                         Container(
                                           width: double.infinity,
                                           height: 180.0,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -278,7 +280,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       .override(
                                                         fontFamily: 'Urbanist',
                                                         color:
-                                                            const Color(0xFF101213),
+                                                            Color(0xFF101213),
                                                         fontSize: 24.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -287,7 +289,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 4.0, 12.0, 0.0),
                                                 child: Text(
@@ -299,7 +301,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -307,7 +309,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 10.0)),
+                                            ].divide(SizedBox(height: 10.0)),
                                           ),
                                         ),
                                       ],
@@ -317,9 +319,9 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
@@ -331,13 +333,13 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     await _model.pageViewController!
                                         .animateToPage(
                                       i,
-                                      duration: const Duration(milliseconds: 500),
+                                      duration: Duration(milliseconds: 500),
                                       curve: Curves.ease,
                                     );
                                     safeSetState(() {});
                                   },
                                   effect:
-                                      const smooth_page_indicator.ExpandingDotsEffect(
+                                      smooth_page_indicator.ExpandingDotsEffect(
                                     expansionFactor: 2.0,
                                     spacing: 8.0,
                                     radius: 16.0,
@@ -357,7 +359,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: EdgeInsets.all(24.0),
                   child: Wrap(
                     spacing: 16.0,
                     runSpacing: 16.0,
@@ -373,7 +375,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                           context.goNamed(
                             'authUser',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.rightToLeft,
                               ),
@@ -384,9 +386,9 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                         options: FFButtonOptions(
                           width: 200.0,
                           height: 52.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -398,7 +400,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                           elevation: 0.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

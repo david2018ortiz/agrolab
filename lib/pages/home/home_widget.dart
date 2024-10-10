@@ -3,12 +3,15 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -70,7 +73,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
               context.pushNamed(
                 'perfil',
                 extra: <String, dynamic>{
-                  kTransitionInfoKey: const TransitionInfo(
+                  kTransitionInfoKey: TransitionInfo(
                     hasTransition: true,
                     transitionType: PageTransitionType.rightToLeft,
                   ),
@@ -92,7 +95,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 15.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 15.0, 0.0, 0.0),
                   child: Text(
                     'Hora actual: ${dateTimeFormat("jms", getCurrentTimestamp)}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -105,7 +108,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 60.0,
@@ -118,7 +121,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -129,9 +132,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   4.0, 0.0, 0.0, 0.0),
-                              child: SizedBox(
+                              child: Container(
                                 width: 200.0,
                                 child: TextFormField(
                                   controller: _model.textController,
@@ -198,11 +201,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: Alignment(0.0, 0),
                           child: TabBar(
                             labelColor:
                                 FlutterFlowTheme.of(context).primaryText,
@@ -214,10 +217,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   fontFamily: 'Readex Pro',
                                   letterSpacing: 0.0,
                                 ),
-                            unselectedLabelStyle: const TextStyle(),
+                            unselectedLabelStyle: TextStyle(),
                             indicatorColor:
                                 FlutterFlowTheme.of(context).primary,
-                            tabs: const [
+                            tabs: [
                               Tab(
                                 text: 'Animales',
                                 icon: FaIcon(
@@ -378,7 +381,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 }.withoutNulls,
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      const TransitionInfo(
+                                                      TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType
@@ -395,7 +398,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         .secondaryBackground,
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Column(
@@ -406,7 +409,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   8.0,
@@ -417,7 +420,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             String>(
                                                           listViewProyectsRecord
                                                               .proyectImage,
-                                                          'https://firebasestorage.googleapis.com/v0/b/leche-61850.appspot.com/o/jorien-loman-00YD5QLyaGU-unsplash%20(1).png?alt=media&token=a647ff7a-05f9-4350-9d91-eb3ff2f95576' '$listViewIndex',
+                                                          'https://firebasestorage.googleapis.com/v0/b/leche-61850.appspot.com/o/jorien-loman-00YD5QLyaGU-unsplash%20(1).png?alt=media&token=a647ff7a-05f9-4350-9d91-eb3ff2f95576' +
+                                                              '$listViewIndex',
                                                         ),
                                                         transitionOnUserGestures:
                                                             true,
@@ -429,11 +433,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           child:
                                                               CachedNetworkImage(
                                                             fadeInDuration:
-                                                                const Duration(
+                                                                Duration(
                                                                     milliseconds:
                                                                         500),
                                                             fadeOutDuration:
-                                                                const Duration(
+                                                                Duration(
                                                                     milliseconds:
                                                                         500),
                                                             imageUrl:
@@ -453,7 +457,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -481,7 +485,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -508,7 +512,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -569,7 +573,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                             0.0,
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 5.0)),
                                                             ),
                                                           ),
@@ -614,7 +618,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                             0.0,
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 5.0)),
                                                             ),
                                                           ),
@@ -651,7 +655,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             ),
                                                             child: Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: Text(
                                                                 () {
@@ -689,7 +693,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             width: 10.0)),
                                                       ),
                                                     ),
@@ -705,7 +709,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ],
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Proximanete podras invertir en proyectos del agro.',
                                   style: FlutterFlowTheme.of(context)

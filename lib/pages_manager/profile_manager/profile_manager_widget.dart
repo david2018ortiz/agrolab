@@ -8,8 +8,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'profile_manager_model.dart';
 export 'profile_manager_model.dart';
 
@@ -81,7 +84,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
             context.goNamed(
               'proyectsManager',
               extra: <String, dynamic>{
-                kTransitionInfoKey: const TransitionInfo(
+                kTransitionInfoKey: TransitionInfo(
                   hasTransition: true,
                   transitionType: PageTransitionType.rightToLeft,
                 ),
@@ -90,7 +93,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
           },
         ),
         title: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
           child: Text(
             'Mi perfil',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -100,23 +103,23 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
           ),
         ),
-        actions: const [],
+        actions: [],
         centerTitle: false,
         elevation: 0.0,
       ),
       body: Align(
-        alignment: const AlignmentDirectional(0.0, 0.0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Container(
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             maxWidth: 600.0,
           ),
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -202,13 +205,13 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  content: const Text(
+                                  content: Text(
                                       'Para editar tu imagen, presiona el botón editar.'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
+                                      child: Text('Ok'),
                                     ),
                                   ],
                                 );
@@ -224,18 +227,18 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                             shape: BoxShape.circle,
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(2.0),
+                            padding: EdgeInsets.all(2.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 200.0,
                                 height: 200.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: CachedNetworkImage(
-                                  fadeInDuration: const Duration(milliseconds: 500),
-                                  fadeOutDuration: const Duration(milliseconds: 500),
+                                  fadeInDuration: Duration(milliseconds: 500),
+                                  fadeOutDuration: Duration(milliseconds: 500),
                                   imageUrl: currentUserPhoto,
                                   fit: BoxFit.fitWidth,
                                 ),
@@ -248,7 +251,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 8.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -268,17 +271,17 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
                                     content:
-                                        const Text('¿Eliminar imagen de perfil?'),
+                                        Text('¿Eliminar imagen de perfil?'),
                                     actions: [
                                       TextButton(
                                         onPressed: () => Navigator.pop(
                                             alertDialogContext, false),
-                                        child: const Text('Cancelar'),
+                                        child: Text('Cancelar'),
                                       ),
                                       TextButton(
                                         onPressed: () => Navigator.pop(
                                             alertDialogContext, true),
-                                        child: const Text('Confirmar'),
+                                        child: Text('Confirmar'),
                                       ),
                                     ],
                                   );
@@ -298,7 +301,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 if (!_model.editar)
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                     child: Text(
                       'Debes cargar una foto nueva.',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -309,7 +312,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                   ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => TextFormField(
                       controller: _model.nombreTextController,
@@ -360,7 +363,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -374,7 +377,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => TextFormField(
                       controller: _model.identidadTextController,
@@ -425,7 +428,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -439,7 +442,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => TextFormField(
                       controller: _model.telefonoTextController,
@@ -490,7 +493,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -504,7 +507,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => TextFormField(
                       controller: _model.ciudadTextController,
@@ -555,7 +558,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -569,7 +572,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => TextFormField(
                       controller: _model.descripcionTextController,
@@ -620,7 +623,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -636,10 +639,10 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                 ),
                 if (!_model.editar)
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.05),
+                    alignment: AlignmentDirectional(0.0, 0.05),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 50.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 50.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           await currentUserReference!
@@ -659,9 +662,9 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         options: FFButtonOptions(
                           width: 270.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -672,7 +675,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -683,10 +686,10 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                   ),
                 if (_model.editar)
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.05),
+                    alignment: AlignmentDirectional(0.0, 0.05),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 50.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 50.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           _model.editar = false;
@@ -696,9 +699,9 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                         options: FFButtonOptions(
                           width: 270.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -709,7 +712,7 @@ class _ProfileManagerWidgetState extends State<ProfileManagerWidget> {
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
