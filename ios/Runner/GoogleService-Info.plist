@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>643257813568-s9f9cho5df4bgqb27oa24bmfoknc43kc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.643257813568-s9f9cho5df4bgqb27oa24bmfoknc43kc</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>643257813568-f1bc59dgu8dfuro3surki1mak7nkmcue.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6jib-Vah_FI4T_a7tGbHWsR7iWgpD_Lk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>643257813568</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fuve.ganaderia</string>
+	<key>PROJECT_ID</key>
+	<string>leche-61850</string>
+	<key>STORAGE_BUCKET</key>
+	<string>leche-61850.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:643257813568:ios:a311f31d871f914537eda5</string>
+</dict>
+</plist>
