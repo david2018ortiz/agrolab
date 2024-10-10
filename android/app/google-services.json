@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "643257813568",
+    "project_id": "leche-61850",
+    "storage_bucket": "leche-61850.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643257813568:android:23c896e7f383698e37eda5",
+        "android_client_info": {
+          "package_name": "com.fuve.ganaderia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643257813568-f1bc59dgu8dfuro3surki1mak7nkmcue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fuve.ganaderia",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "643257813568-tsgdmlpl9djqjpnlo2cbnmh96s2p1b33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPmihjaxi-XapW6i3YV1m9ak7ZxLbqHPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643257813568-tsgdmlpl9djqjpnlo2cbnmh96s2p1b33.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "643257813568-s9f9cho5df4bgqb27oa24bmfoknc43kc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fuve.ganaderia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
